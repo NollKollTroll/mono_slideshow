@@ -17,7 +17,8 @@ JpEnableHires:
         jp      EnableHires //+0
 JpDisableHires:
         jp      DisableHires //+3
-        
+
+        const TV_STD = TV_STD_50HZ //TV_STD_50HZ or TV_STD_60HZ
         include "video.inc"
         include "zxpand.inc"
 }

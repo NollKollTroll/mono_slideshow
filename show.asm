@@ -19,26 +19,23 @@ DFILETYPE  EQU	   EXPANDED	  // COLLAPSED or EXPANDED or AUTO
 include '..\..\SINCL-ZX\ZX81.INC' // definitions of constants
 ;LISTON
       1 REM _hide _asm
-	file 'VideoMain.bin'
+	file 'VideoMain60.bin'
 	END _asm
-
-//Init stuff
 AUTORUN:
-     10 LOAD "SCRSTACK.BIN;32768" //Load the video stack
 //The slideshow stack
-    100 LOAD "DRG.NKT;32768"
+    100 LOAD "TEST01.RAW;32768"
 	GOSUB 1000
-	LOAD "RBW.NKT;32768"
+	LOAD "TEST02.RAW;32768"
 	GOSUB 1000
-	LOAD "RGB1.NKT;32768"
+	LOAD "TEST03.RAW;32768"
 	GOSUB 1000
-	LOAD "RGB2.NKT;32768"
+	LOAD "TEST04.RAW;32768"
 	GOSUB 1000
 	GOTO 100
-//Slideshow subroutine
+//Show a picture for a while, subroutine
    1000 RAND USR 16516	//EnableHires
-	//Delay a bit
-	FOR I=0 TO 200
+	//Delay a bit, PAUSE does not work
+	FOR I=1 TO 200
 	NEXT I
 	RAND USR 16519	//DisableHires
 	RETURN
