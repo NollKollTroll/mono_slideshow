@@ -53,4 +53,4 @@ The code I created for this project is licensed under Creative Commons CC0 1.0 U
 ## Contact
 
 Mail: <adam.klotblixt@gmail.com><br>
-Github: <https://github.com/NollKollTroll/chroma_slideshow>
+Github: <https://github.com/NollKollTroll/mono_slideshow>
