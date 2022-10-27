@@ -16,11 +16,17 @@ Put all the files from the release-binary folder on an SD-card, load the file **
 First, gather the pictures and convert them to 1-bit 256x384 headerless raw files with your program of choice.<br>
 The following examples are created with ImageMagick available for Linux, Windows and MacOS.<br>
 First create a BMP file to test what it looks like:<br>
-> convert -resize 256x384\\! -ordered-dither o4x4 -colors 2 -type bilevel -depth 1 ~/Pictures/mirage1.jpg test.bmp<br>
+```
+convert -resize 256x384\! -ordered-dither o8x8 -colors 2 -type bilevel -depth 1 ~/Pictures/mirage1.jpg test.bmp
+```
 
-Finally create the headerless RAW file when you are satisfied. Note that the ZX81 uses inverted values for black and white:<br>
-> convert -resize 256x384\\! -ordered-dither o4x4 -colors 2 -type bilevel -depth 1 -channel RGB -negate ~/Pictures/mirage1.jpg test.gray<br>
-> rename test.gray test.raw<br>
+Create the headerless RAW file when you are satisfied with the preview. Note that the ZX81 uses inverted values for black and white:<br>
+```
+convert -resize 256x384\! -ordered-dither o8x8 -colors 2 -type bilevel -depth 1 -channel RGB -negate ~/Pictures/mirage1.jpg test.gray
+```
+```
+rename test.gray test.raw
+```
 
 Open the file **show.asm** in ZX-IDE and change the BASIC-lines loading the pictures, make sure to use the same LOAD address.<br>
 Compile the program (Ctrl-F9).<br>
@@ -37,7 +43,9 @@ It is also possible to change the scan rate of the display. Choose **VideoMain50
 
 The files **VideoMain50.bin** and **VideoMain60.bin** are included pre-built, and can be built using the jasm assembler.<br>
 Use the following command line to build VideoMain.bin with jasm:<br>
-> jasm -om -v2 video.asm
+```
+jasm -om -v2 video.asm
+```
 
 ## Emulators
 
