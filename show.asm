@@ -18,11 +18,14 @@ STARTMODE  EQU	   SLOW_MODE	  // SLOW or FAST
 DFILETYPE  EQU	   EXPANDED	  // COLLAPSED or EXPANDED or AUTO
 include '..\..\SINCL-ZX\ZX81.INC' // definitions of constants
 ;LISTON
-      1 REM _hide _asm
+AUTOLINE 0
+	REM _asm
 	file 'VideoMain60.bin' //VideoMain50.bin or VideoMain60.bin
 	END _asm
-AUTORUN:
+//AUTORUN:
+     90 LLIST "M=H" //LLIST -> CONFIG
 //The slideshow stack
+AUTOLINE 10
     100 LOAD "TEST01.RAW;32768"
 	GOSUB 1000
 	LOAD "TEST02.RAW;32768"
@@ -33,11 +36,11 @@ AUTORUN:
 	GOSUB 1000
 	GOTO 100
 //Show a picture for a while, subroutine
-   1000 RAND USR 16516	//EnableHires
+   1000 RAND USR 16514	//EnableHires
 	//Delay a bit, PAUSE does not work
 	FOR I=1 TO 200
 	NEXT I
-	RAND USR 16519	//DisableHires
+	RAND USR 16517	//DisableHires
 	RETURN
 
 //include D_FILE and needed memory areas
